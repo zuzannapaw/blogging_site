@@ -1,7 +1,12 @@
-const PostPage=()=>{
-    return(
-<h1>This is main page</h1>
-    )
-}
+import PostSummary from "../components/PostsSummary";
+import Posts from "../components/Posts";
+const PostPage = () => {
+  return (
+    <>
+      <PostSummary />
+      <Posts/>
+    </>
+  );
+};
 
-export default PostPage
+export default PostPage;

@@ -6,7 +6,6 @@ const GlobalStyles = createGlobalStyle`
 }
 body {
     background: ${({ theme }) => theme.colors.body};
-    color: white;
     font-size: 1.15em;
     margin: 0;
 }
@@ -14,8 +13,7 @@ h1{
     color:black;
 }
 p {
-    opacity: 0.6;
-    line-height: 1.5;
+    font-weight: 600;
 }
 img {
     max-width: 100%

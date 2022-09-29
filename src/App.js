@@ -7,7 +7,7 @@ import Layout from "./components/Layout";
 
 const theme = {
   colors: {
-    nav: "#a0816c",
+    nav: "#c2936a"
   },
 };
 
