@@ -4,6 +4,8 @@ import GlobalStyles from "./components/styles/Global";
 import PostPage from "./pages/PostsPage";
 import { Route, Routes } from "react-router";
 import Layout from "./components/Layout";
+import FavPage from "./pages/FavPage";
+
 
 const theme = {
   colors: {
@@ -17,7 +19,8 @@ function App() {
       <GlobalStyles />
       <Layout>
         <Routes>
-          <Route path="/" element={<PostPage />} />
+          <Route path="/" element={<PostPage/>} />
+          <Route path="/favourites" element={<FavPage/>}/>
         </Routes>
       </Layout>
     </ThemeProvider>

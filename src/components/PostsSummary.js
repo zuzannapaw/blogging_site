@@ -1,4 +1,4 @@
-import { PostSummaryStyled } from "./styles/PostSummary.styled";
+import { PostSummaryStyled } from "./styles/postsList/PostSummary.styled";
 
 const PostSummary = () => {
   return (

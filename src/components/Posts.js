@@ -1,5 +1,10 @@
 import Post from "./Post";
-import { PostsCard, PostsContainer } from "./styles/PostsContainer.styled";
+import {
+  PostsCard,
+  PostsContainer,
+} from "./styles/postsList/PostsContainer.styled";
+import { useContext } from "react";
+import PostContext from "../store/post-context";
 
 const DUMMY_POSTS = [
   {
@@ -24,18 +29,24 @@ const DUMMY_POSTS = [
     description: "Hey im new! I wanted to join you guys!",
     author: "Melisaa3",
   },
-]
+];
 
 const Posts = () => {
+  const postCtx = useContext(PostContext);
+
   return (
     <PostsContainer>
       <PostsCard>
-        {DUMMY_POSTS.map(post =>{
-            return(<Post
-            title={post.title}
-            description={post.description}
-            author={post.author}
-          />);
+        {postCtx.posts.map((post) => {
+          return (
+            <Post
+              title={post.title}
+              description={post.description}
+              author={post.author}
+              key={post.id}
+              id={post.id}
+            />
+          );
         })}
       </PostsCard>
     </PostsContainer>

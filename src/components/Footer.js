@@ -1,5 +1,5 @@
-import { FooterStyled } from "./styles/Footer.styled";
-import { FooterFlex } from "./styles/FooterFlex.styled";
+import { FooterStyled } from "./styles/footer/Footer.styled";
+import { FooterFlex } from "./styles/footer/FooterFlex.styled";
 const Footer = () => {
   return (
     <FooterStyled>
