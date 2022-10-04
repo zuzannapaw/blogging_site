@@ -45,6 +45,7 @@ const Posts = () => {
               author={post.author}
               key={post.id}
               id={post.id}
+              isFav={post.isFav}
             />
           );
         })}

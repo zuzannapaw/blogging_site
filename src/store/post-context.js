@@ -10,7 +10,7 @@ const DUMMY_POSTS = [
   {
     title: "Shopping today!",
     description:
-      "Today i went shopping, because i wanted to buy dress for my halloween party!",
+      "Today i went shopping, because i wanted to buy dress for my halloween party! Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!",
     author: "samantha123",
     isFav: false,
     id: "1",
@@ -41,23 +41,20 @@ const DUMMY_POSTS = [
 
 export const PostContextProvider = (props) => {
   const [posts, setPosts] = useState([]);
-  const [addedToFav, setIsAddedToFav] = useState(false);
 
   useEffect(() => {
     setPosts(DUMMY_POSTS);
   }, []);
 
-  const onAddToFav = (postId) => {
-    setIsAddedToFav(true);
-
+  const onManagingFav = (postId) => {
     const selectedPost = posts.find((post) => post.id === postId);
-    selectedPost.isFav = true;
+
+    selectedPost.isFav = !selectedPost.isFav;
   };
 
   const contextValue = {
     posts: posts,
-    addedToFav,
-    onAddToFav,
+    onManagingFav,
   };
 
   return (

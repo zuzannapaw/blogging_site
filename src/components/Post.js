@@ -3,29 +3,46 @@ import {
   UserIcon,
   ButtonMore,
   ButtonFav,
+  PostContent,
 } from "./styles/Post.styled";
 import { FaUser } from "react-icons/fa";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import PostContext from "../store/post-context";
 import React from "react";
 
 const Post = (props) => {
-  const [click, setIsClick] = useState(false);
-
   const postCtx = useContext(PostContext);
- 
+
+  //ZNAJDZ TEN OBIEKT
 
   const onAddToFav = () => {
-    postCtx.onAddToFav(props.id);
+    postCtx.onManagingFav(props.id);
+    console.log("CLICK");
+    //dodac state
+    // isFav = props.isFav = true;
+    //  setIsClick(isFav)
+    // const selectedPost = postCtx.posts.find((post) => post.id === props.id);
+    // isFav = selectedPost.isFav;
+    // console.log(isFav);
   };
+
+  // useEffect(() => {
+  //   setIsClick(isFav);
+  // }, [isFav]);
 
   return (
     <PostStyled>
-      <ButtonFav clicked={postCtx.addedToFav} onClick={onAddToFav}>
-        Favourite
+      <ButtonFav
+        clicked={postCtx.addedToFav}
+        onClick={onAddToFav}
+        fav={props.isFav}
+      >
+        {props.isFav ? "Unfavorite" : "Favourite"}
       </ButtonFav>
       <h2>{props.title}</h2>
-      <h3>{props.description}</h3>
+      <PostContent>
+        <h3>{props.description}</h3>
+      </PostContent>
       <div>
         <UserIcon>
           <FaUser />
