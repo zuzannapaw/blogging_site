@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useState } from "react";
 
 const PostContext = React.createContext({
   posts: [],
-  addedToFav: false,
-  onAddToFav: () => {},
+  onManagingFav: () => {},
+  clickedMore: false,
+  onClickMore: () => {},
 });
 
 const DUMMY_POSTS = [
@@ -41,6 +42,7 @@ const DUMMY_POSTS = [
 
 export const PostContextProvider = (props) => {
   const [posts, setPosts] = useState([]);
+  const [more,setIsMore] = useState(false)
 
   useEffect(() => {
     setPosts(DUMMY_POSTS);
@@ -52,10 +54,17 @@ export const PostContextProvider = (props) => {
     selectedPost.isFav = !selectedPost.isFav;
   };
 
+  const onClickMore = ()=>{
+    setIsMore(!more)
+  } 
+
   const contextValue = {
     posts: posts,
     onManagingFav,
+    clickedMore: more,
+    onClickMore,
   };
+
 
   return (
     <PostContext.Provider value={contextValue}>

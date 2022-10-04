@@ -41,6 +41,18 @@ export const PostContent = styled.div`
 
 height:40px;
 overflow:hidden;
+
+p{
+  font-size: 16px;
+  padding-bottom: 4px;
+  margin:0;
+  letter-spacing:4px;
+}
+
+${(props)=>
+  props.clickedMore && `
+  height:auto;
+  overflow:visible`}
 ` 
 
 
@@ -60,6 +72,16 @@ export const ButtonMore = styled.button`
   border-radius: 15px;
   cursor: pointer;
   align-self: flex-end;
+
+  &:hover{
+    background-color: #3a3a3a;
+    color:white;
+
+
+  }
+
+
+
 `;
 
 export const ButtonFav = styled.button`
