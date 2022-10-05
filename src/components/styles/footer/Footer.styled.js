@@ -9,6 +9,8 @@ color:white;
 margin:0;
 padding: 2%;
 font-family:Arimo, sans-serif;
+align-self:flex-end;
+
 
 h2{
     margin:0;

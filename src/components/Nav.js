@@ -7,8 +7,8 @@ const Nav = (props) => {
     <Logo src="./images/logo1.png" alt="" />
     <ul>
    <li><NavbarLink to="/">Posts</NavbarLink></li> 
-    <li><NavbarLink to="/favourites">Favourite Posts</NavbarLink></li>
-    <li><NavbarLink to="">Login</NavbarLink></li>
+    <li><NavbarLink to="/favorites">Favorite Posts</NavbarLink></li>
+    <li><NavbarLink to="/login">Login</NavbarLink></li>
       {/* <li><NavbarLink to="">Add Post</NavbarLink></li> if logged */}
     </ul>
   </NavStyled>
