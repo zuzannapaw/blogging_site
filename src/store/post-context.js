@@ -15,6 +15,7 @@ const DUMMY_POSTS = [
     author: "samantha123",
     isFav: false,
     id: "1",
+
   },
   {
     title: "That test is stressing me out...",
@@ -42,7 +43,6 @@ const DUMMY_POSTS = [
 
 export const PostContextProvider = (props) => {
   const [posts, setPosts] = useState([]);
-  const [more,setIsMore] = useState(false)
 
   useEffect(() => {
     setPosts(DUMMY_POSTS);
@@ -54,14 +54,14 @@ export const PostContextProvider = (props) => {
     selectedPost.isFav = !selectedPost.isFav;
   };
 
-  const onClickMore = ()=>{
-    setIsMore(!more)
+  const onClickMore = (postId)=>{
+    const selectedPost = posts.find((post) => post.id === postId);
+    selectedPost.moreClicked = !selectedPost.moreClicked 
   } 
 
   const contextValue = {
     posts: posts,
     onManagingFav,
-    clickedMore: more,
     onClickMore,
   };
 

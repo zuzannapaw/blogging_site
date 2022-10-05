@@ -9,7 +9,7 @@ import FavPage from "./pages/FavPage";
 
 const theme = {
   colors: {
-    nav: "#c2936a"
+    nav: "#736558"
   },
 };
 

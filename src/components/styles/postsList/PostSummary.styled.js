@@ -24,7 +24,7 @@ export const PostSummaryStyled = styled.section`
   button{
     width:17%;
     height:15%;
-    border:solid 1.5px #000;
+    letter-spacing:1.5px;
     background-color:white;
     color:#3a3a3a;
     border-radius:20px;
