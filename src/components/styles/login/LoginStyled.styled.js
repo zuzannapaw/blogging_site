@@ -30,26 +30,6 @@ height:1em;
 width:10em;
 font-family:Arimo,sans-serif;
 
-input{
-    width:290px;
-    line-height: 27px;
-    margin:10%
-    
-}
-
-input.email{
-    ${(props)=>props.emailError && `
-    backgroundColor:red;
-    `}
-}
-
-input.password{
-    ${(props)=>props.passwordError && `
-    backgroundColor:red;
-    `}
-}
-
-
 
 label{
     font-size: 1em;
@@ -57,6 +37,34 @@ label{
     margin-bottom:13% 0;
     padding:5%;
 }
+
+input{
+    width:290px;
+    line-height: 27px;
+    margin:10%;   
+}
+
+input.email{
+    ${(props)=>props.emailError && `
+    background-color: #ef9a9a;
+    border: 1px solid red;
+    &:focus{
+        outline: none;
+    }
+    
+    `}
+}
+
+input.password{
+    ${(props)=>props.passwordError && `
+    background-color: #ef9a9a;
+    border: 1px solid red;
+    &:focus{
+        outline: none;
+    }
+    `}
+}
+
 
 button{
     margin:40% 0;

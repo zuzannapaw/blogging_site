@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router";
 import useInput from "../../hooks/use-input"
 import { LoginFormStyled } from "../styles/login/LoginStyled.styled"
-import { useState } from "react";
+import { useContext, useState } from "react";
+import PostContext from "../../store/post-context";
 
 const LoginForm = (props) => {
+
+    const postCtx = useContext(PostContext)
 
     const [formValidInfo, setFormValidInfo] = useState("")
 
@@ -32,10 +35,7 @@ const LoginForm = (props) => {
         formIsValid = true;
     }
 
-    const errorEmail = emailHasError;
-    const errorPassword = passwordHasError;
 
-    console.log(errorEmail)
 
 
 
@@ -46,6 +46,8 @@ const LoginForm = (props) => {
             setFormValidInfo(<p>Enter valid mail and password</p>)
             return;
         } else {
+            postCtx.onLogin({email:enteredEmail,password:enteredPassword})
+
             navigate("/")
         }
         passwordReset();
@@ -54,9 +56,9 @@ const LoginForm = (props) => {
 
 
     return (
-        <LoginFormStyled onSubmit={submitHandler} passwordError={errorPassword} emailError={errorEmail}>
+        <LoginFormStyled onSubmit={submitHandler} passwordError={passwordHasError} emailError={emailHasError}>
             <label htmlFor="email">e-mail</label>
-            {emailHasError && <p>E-mail must includes '@'</p>}
+            {emailHasError && <p>Must includes '@'.</p>}
             <input
                 className="email"
                 value={enteredEmail}
@@ -64,7 +66,7 @@ const LoginForm = (props) => {
                 onBlur={emailBlurHandler}
             />
             <label htmlFor="password">password</label>
-            {passwordHasError && <p>Password must be longer</p>}
+            {passwordHasError && <p>Min. 6 characters.</p>}
             <input
                 className="password"
                 type="password"

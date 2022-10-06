@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const PostStyled = styled.div`
   display: flex;
@@ -39,8 +39,12 @@ export const PostStyled = styled.div`
 
 export const PostContent = styled.div`
 
-height:40px;
+height: 40px;
 overflow:hidden;
+
+${props => props.clickedMore && css`
+  overflow:visible,
+height:auto`}
 
 p{
   font-size: 16px;
@@ -49,12 +53,7 @@ p{
   letter-spacing:4px;
 }
 
-${(props)=>
-  props.clickedMore && `
-  height:auto;
-  overflow:visible`}
-` 
-
+`
 
 
 export const UserIcon = styled.div`
@@ -100,10 +99,11 @@ export const ButtonFav = styled.button`
     color: white;
   }
 
-  ${(props) =>
-    props.fav &&`background-color: #d32f2f;
+  ${props => props.fav && css`
+  background-color: #d32f2f;
     color:white;
-`}
+  `}
+
 `;
 
 // ${props => props.clicked &&`

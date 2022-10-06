@@ -11,7 +11,9 @@ import {EmptyFavList}  from "../styles/fav/Fav.styled";
 const FavList = () => {
   const postCtx = useContext(PostContext);
 
-  const favoritePosts = postCtx.posts.filter((post) => post.isFav);
+  const favoritePosts = postCtx.currAccount? postCtx.currAccount.favorites : [];
+
+  console.log(`FAV ${favoritePosts}`)
 
   const postsList = favoritePosts.map((post) => {
     return (

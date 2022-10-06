@@ -1,11 +1,33 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, {useState} from "react";
 
 const PostContext = React.createContext({
   posts: [],
-  onManagingFav: () => {},
+  onManagingFav: () => { },
+  onLogin: () => { },
   clickedMore: false,
-  onClickMore: () => {},
+  onClickMore: () => { },
+  currAccount: {},
 });
+
+
+const account1 = {
+  owner: "Susan Bones",
+  email: "susan@",
+  password: "1111111",
+  username: "susan1",
+  favorites: [],
+}
+
+const account2 = {
+  owner: "David Penguin",
+  email: "david@",
+  password: "2222222",
+  username: "david2",
+  favorites: [],
+}
+
+const accounts = [account1, account2];
+
 
 const DUMMY_POSTS = [
   {
@@ -42,27 +64,57 @@ const DUMMY_POSTS = [
 ];
 
 export const PostContextProvider = (props) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(DUMMY_POSTS);
+  const [currAccount, setCurrAccount] = useState(null);
 
-  useEffect(() => {
-    setPosts(DUMMY_POSTS);
-  }, []);
+  const onLogin = (loginData) => {
+    const current = accounts.find(account => loginData.email === account.email && loginData.password === account.password);
+    setCurrAccount(current);
+    console.log(`Welcome ${current.owner}`);
 
-  const onManagingFav = (postId) => {
-    const selectedPost = posts.find((post) => post.id === postId);
-
-    selectedPost.isFav = !selectedPost.isFav;
   };
 
-  const onClickMore = (postId)=>{
+
+
+  const onManagingFav = (postId) => {
+
+    if (currAccount) {
+
+      const updatedPosts = posts.map(post => { return { ...post } });
+      const updatedCurrAccount = { ...currAccount };
+
+      const selectedIndex = updatedPosts.findIndex(post => post.id === postId);
+      const selectedPost = updatedPosts[selectedIndex];
+
+      if (!selectedPost.isFav) {
+        updatedPosts[selectedIndex].isFav = true;
+
+        updatedCurrAccount.favorites.push(selectedPost);
+
+      } else {
+        updatedPosts[selectedIndex].isFav = false;
+        const indexToRemove = updatedCurrAccount.favorites.findIndex(favPost => favPost.id === postId);
+        currAccount.favorites.splice(indexToRemove, 1);
+
+      };
+      console.log(currAccount.favorites);
+      setCurrAccount(updatedCurrAccount);
+      setPosts(updatedPosts);
+
+    }
+  };
+
+  const onClickMore = (postId) => {
     const selectedPost = posts.find((post) => post.id === postId);
-    selectedPost.moreClicked = !selectedPost.moreClicked 
-  } 
+    selectedPost.moreClicked = !selectedPost.moreClicked;
+  };
 
   const contextValue = {
     posts: posts,
+    onLogin,
     onManagingFav,
     onClickMore,
+    currAccount,
   };
 
 
