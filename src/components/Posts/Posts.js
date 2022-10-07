@@ -2,9 +2,9 @@ import Post from "./Post";
 import {
   PostsCard,
   PostsContainer,
-} from "./styles/postsList/PostsContainer.styled";
+} from "../styles/posts/PostsContainer.styled";
 import { useContext } from "react";
-import PostContext from "../store/post-context";
+import PostContext from "../../store/post-context";
 
 const Posts = () => {
   const postCtx = useContext(PostContext);

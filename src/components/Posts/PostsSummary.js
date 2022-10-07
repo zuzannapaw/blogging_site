@@ -1,12 +1,15 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router";
-import { PostSummaryStyled } from "./styles/postsList/PostSummary.styled";
+import PostContext from "../../store/post-context"
+import { PostSummaryStyled } from "../styles/posts/PostSummary.styled";
 
 const PostSummary = () => {
 
-  const navigate = useNavigate()
+  const postCtx = useContext(PostContext);
+  const navigate = useNavigate();
 
   const postNowClick = () => {
-    navigate('/login')
+    postCtx.currAccount ?  navigate('/add') : navigate('/login');
 
   }
 

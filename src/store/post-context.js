@@ -7,6 +7,7 @@ const PostContext = React.createContext({
   clickedMore: false,
   onClickMore: () => { },
   currAccount: {},
+  onLogout:()=>{},
 });
 
 
@@ -109,12 +110,17 @@ export const PostContextProvider = (props) => {
     selectedPost.moreClicked = !selectedPost.moreClicked;
   };
 
+  const onLogout = ()=>{
+    setCurrAccount(null);
+  }
+
   const contextValue = {
     posts: posts,
     onLogin,
     onManagingFav,
     onClickMore,
     currAccount,
+    onLogout,
   };
 
 

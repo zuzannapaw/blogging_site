@@ -1,5 +1,5 @@
-import PostSummary from "../components/PostsSummary";
-import Posts from "../components/Posts";
+import PostSummary from "../components/Posts/PostsSummary";
+import Posts from "../components/Posts/Posts";
 const PostPage = () => {
   return (
     <>

@@ -8,9 +8,10 @@ const LoginForm = (props) => {
 
     const postCtx = useContext(PostContext)
 
-    const [formValidInfo, setFormValidInfo] = useState("")
+    const [formValidInfo, setFormValidInfo] = useState("");
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     const {
         value: enteredEmail,
         hasError: emailHasError,
@@ -33,11 +34,7 @@ const LoginForm = (props) => {
 
     if (emailIsValid && passwordIsValid) {
         formIsValid = true;
-    }
-
-
-
-
+    };
 
 
     const submitHandler = (e) => {
@@ -77,10 +74,7 @@ const LoginForm = (props) => {
             <button type="submit">Login</button>
             {formValidInfo}
         </LoginFormStyled>
-    )
-
-
-
-}
+    );
+};
 
 export default LoginForm

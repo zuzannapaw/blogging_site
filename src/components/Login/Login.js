@@ -1,5 +1,5 @@
 import LoginForm from "./LoginForm";
-import {LoginContainer, LoginCardStyled } from "../styles/login/LoginStyled.styled";
+import { LoginContainer, LoginCardStyled } from "../styles/login/LoginStyled.styled";
 
 
 const Login = (props) => {
@@ -7,11 +7,9 @@ const Login = (props) => {
     return (
         <LoginContainer>
             <LoginCardStyled>
-            <LoginForm />
+                <LoginForm />
             </LoginCardStyled>
         </LoginContainer>
-
-
     )
 
 }

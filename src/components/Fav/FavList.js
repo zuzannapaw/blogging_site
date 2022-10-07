@@ -4,7 +4,7 @@ import FavPost from "./FavPost";
 import {
   PostsContainer,
   PostsCard,
-} from "../styles/postsList/PostsContainer.styled";
+} from "../styles/posts/PostsContainer.styled";
 
 import {EmptyFavList}  from "../styles/fav/Fav.styled";
 

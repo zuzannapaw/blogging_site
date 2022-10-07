@@ -1,5 +1,6 @@
-import { FooterStyled } from "./styles/footer/Footer.styled";
-import { FooterFlex } from "./styles/footer/FooterFlex.styled";
+import { FooterStyled } from "../../styles/footer/Footer.styled";
+import { FooterFlex } from "../../styles/footer/FooterFlex.styled";
+
 const Footer = () => {
   return (
     <FooterStyled>

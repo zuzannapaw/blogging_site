@@ -4,10 +4,10 @@ import {
   ButtonMore,
   ButtonFav,
   PostContent,
-} from "./styles/Post.styled";
+} from "../styles/posts/Post.styled";
 import { FaUser } from "react-icons/fa";
 import { useContext, useState } from "react";
-import PostContext from "../store/post-context";
+import PostContext from "../../store/post-context";
 
 
 const Post = (props) => {
@@ -20,8 +20,8 @@ const Post = (props) => {
   };
 
   const onClickMore = () => {
-    postCtx.onClickMore(props.id)
-    setIsClickedMore((prevState)=> !prevState)
+    postCtx.onClickMore(props.id);
+    setIsClickedMore((prevState)=> !prevState);
 
   }
 
@@ -30,12 +30,12 @@ const Post = (props) => {
 
   return (
     <PostStyled>
-      <ButtonFav
+      {postCtx.currAccount && <ButtonFav
         onClick={onAddToFav}
         fav={props.isFav}
       >
         {props.isFav ? "Unfavorite" : "Favorite"}
-      </ButtonFav>
+      </ButtonFav>}
       <h2>{props.title}</h2>
       <PostContent clickedMore={clickedMore}>
         <h3>{props.description}</h3><p>{!postCtx.clickedMore && "..." }</p>

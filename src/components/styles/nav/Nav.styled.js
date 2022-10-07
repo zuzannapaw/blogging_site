@@ -10,7 +10,7 @@ export const NavStyled = styled.nav`
 
   ul {
     display: flex;
-    flex 2;
+    flex: 2;
     justify-content: flex-end;
     list-style: none;
     margin-right: 3%;
@@ -23,11 +23,20 @@ export const NavStyled = styled.nav`
     padding: 0.5rem;
     width: 17%;
     border-radius: 20px;
-    margin: 0 3%;
+    margin: 0 1.5%;
   }
 
   li:hover {
     background-color: #3a3a3a;
+  }
+
+  .welcome-name{
+    margin-left: 5%;
+    color:white;
+    font-family:Arimo,sans-serif;
+    font-weight: 500;
+    font-size:1.1em;
+    border-bottom:1px solid white;
   }
 `;
 

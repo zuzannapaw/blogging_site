@@ -3,7 +3,7 @@ import {
     UserIcon,
     ButtonMore,
     ButtonFav,
-  } from "../styles/Post.styled";
+  } from "../styles/posts/Post.styled";
   import { FaUser } from "react-icons/fa";
 import { useContext } from "react";
 import PostContext from "../../store/post-context";
