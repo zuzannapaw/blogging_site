@@ -9,13 +9,12 @@ min-height:50rem;
 padding:4rem;
 justify-content:flex-start;
 align-items:center;
-background-color:#736558;
 ` 
 
 export const PostsCard = styled.div`
 width:70%;
 height: auto;
 background-color:white;
-border-radius:30px;
+border-radius:10px;
 padding: 4%;
 `

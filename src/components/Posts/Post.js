@@ -11,7 +11,7 @@ import PostContext from "../../store/post-context";
 
 
 const Post = (props) => {
-  const [clickedMore,setIsClickedMore] = useState(false)
+  const [clickedMore, setIsClickedMore] = useState(false)
   const postCtx = useContext(PostContext);
 
 
@@ -21,12 +21,19 @@ const Post = (props) => {
 
   const onClickMore = () => {
     postCtx.onClickMore(props.id);
-    setIsClickedMore((prevState)=> !prevState);
+    setIsClickedMore((prevState) => !prevState);
 
   }
 
   const toggleMore = !clickedMore ? "More" : "Hide";
 
+  let author = props.author;
+  
+  if (postCtx.currAccount) {
+    if (props.author === postCtx.currAccount.username) {
+      author = "Myself"
+    }
+  }
 
   return (
     <PostStyled>
@@ -38,13 +45,13 @@ const Post = (props) => {
       </ButtonFav>}
       <h2>{props.title}</h2>
       <PostContent clickedMore={clickedMore}>
-        <h3>{props.description}</h3><p>{!postCtx.clickedMore && "..." }</p>
-         </PostContent>
+        <h3>{props.description}</h3>
+      </PostContent>
       <div>
-        <UserIcon>
+        <UserIcon currentAuthor={postCtx.currAccount && postCtx.currAccount.username} postAuthor={props.author}>
           <FaUser />
         </UserIcon>
-        <p>{props.author}</p>
+        <p>{author}</p>
         <ButtonMore onClick={onClickMore} >{toggleMore}</ButtonMore>
       </div>
     </PostStyled>
@@ -52,3 +59,5 @@ const Post = (props) => {
 };
 
 export default Post;
+
+{/* <p>{!clickedMore && "..."}</p> */}

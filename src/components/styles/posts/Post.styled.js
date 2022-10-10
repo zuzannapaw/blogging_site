@@ -38,13 +38,19 @@ export const PostStyled = styled.div`
 `;
 
 export const PostContent = styled.div`
-
-height: 40px;
-overflow:hidden;
+  width: 1000px;
+  height: 2.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
 
 ${props => props.clickedMore && css`
-  overflow:visible,
-height:auto`}
+height: auto;
+overflow: initial;
+`}
 
 p{
   font-size: 16px;
@@ -58,6 +64,10 @@ p{
 
 export const UserIcon = styled.div`
   width: 1.5%;
+
+  ${props=> props.currentAuthor === props.postAuthor && css`
+  color:#80deea;
+  `}
   
 `;
 
@@ -75,12 +85,7 @@ export const ButtonMore = styled.button`
   &:hover{
     background-color: #3a3a3a;
     color:white;
-
-
   }
-
-
-
 `;
 
 export const ButtonFav = styled.button`

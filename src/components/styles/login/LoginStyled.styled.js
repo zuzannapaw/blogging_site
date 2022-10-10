@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 export const LoginContainer = styled.div`
 display:flex;
-justify-content: flex-end;
-
+height:100%;
 `
 
 export const LoginCardStyled = styled.div`

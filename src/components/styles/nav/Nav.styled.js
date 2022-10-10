@@ -7,6 +7,7 @@ export const NavStyled = styled.nav`
   justify-content: space-around;
   background-color: ${({ theme }) => theme.colors.nav};
   padding: 0.5rem;
+  height: 4rem;
 
   ul {
     display: flex;
@@ -24,6 +25,7 @@ export const NavStyled = styled.nav`
     width: 17%;
     border-radius: 20px;
     margin: 0 1.5%;
+    letter-spacing: 1px;
   }
 
   li:hover {
@@ -50,5 +52,5 @@ export const NavbarLink = styled(NavLink)`
 export const Logo = styled.img`
   align-self: right;
   width: 13%;
-  height: 15%;
+  height: 50px;
 `;

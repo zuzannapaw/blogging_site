@@ -34,7 +34,7 @@ const DUMMY_POSTS = [
   {
     title: "Shopping today!",
     description:
-      "Today i went shopping, because i wanted to buy dress for my halloween party! Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!Today i went shopping, because i wanted to buy dress for my halloween party!",
+      "Today i went shopping, because i wanted to buy dress for my halloween party! Can't wait for that day, im really excited. I was thinking about a witch costume with a real black cat. Totally crazy. Let me know what do you think about this idea. Can't wait for halloween this year!!!!",
     author: "samantha123",
     isFav: false,
     id: "1",
@@ -110,6 +110,13 @@ export const PostContextProvider = (props) => {
     selectedPost.moreClicked = !selectedPost.moreClicked;
   };
 
+  const onAddPost =(postData)=>{
+    const updatedPosts = posts.map(post => { return { ...post } });
+    updatedPosts.unshift(postData);
+    setPosts(updatedPosts);
+
+  }
+
   const onLogout = ()=>{
     setCurrAccount(null);
   }
@@ -120,6 +127,7 @@ export const PostContextProvider = (props) => {
     onManagingFav,
     onClickMore,
     currAccount,
+    onAddPost,
     onLogout,
   };
 

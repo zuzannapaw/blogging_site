@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import PostContext from "../../../store/post-context";
 import { NavStyled,Logo,NavbarLink } from "../../styles/nav/Nav.styled";
+import logoImg from "../../../images/logo1.png";
 
 const Nav = (props) => {
   const postCtx = useContext(PostContext)
@@ -14,7 +15,7 @@ const Nav = (props) => {
 
     return(
   <NavStyled>
-    <Logo src="./images/logo1.png" alt="" />
+    <Logo src="../../../images/logo1.png" alt="" />
     {postCtx.currAccount && <p className="welcome-name">{welcomeName}</p>}
     <ul>
    <li><NavbarLink to="/">Posts</NavbarLink></li> 
