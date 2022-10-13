@@ -37,8 +37,7 @@ export const NavStyled = styled.nav`
     color:white;
     font-family:Arimo,sans-serif;
     font-weight: 500;
-    font-size:1.1em;
-    border-bottom:1px solid white;
+    font-size:0.9em;
   }
 `;
 
@@ -54,3 +53,15 @@ export const Logo = styled.img`
   width: 13%;
   height: 50px;
 `;
+
+export const Container = styled.div`
+ display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+`
+
+export const MainStyled = styled.main`
+flex:1;
+`
+

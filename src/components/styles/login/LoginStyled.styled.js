@@ -2,19 +2,20 @@ import styled from "styled-components";
 
 
 export const LoginContainer = styled.div`
-display:flex;
-height:100%;
+display: flex;
+justify-content: stretch;
+box-sizing: content-box;
 `
 
 export const LoginCardStyled = styled.div`
 display:flex;
 flex-direction:column;
 justify-content:center;
-min-height:37.7rem;
+min-height:37rem;
 border-radius:50px;
 background-color:white;
 width:25%;
-margin: 3% auto;
+margin:60px auto 9px auto;
 
 `
 

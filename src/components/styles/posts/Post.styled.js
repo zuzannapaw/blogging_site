@@ -91,8 +91,8 @@ export const ButtonMore = styled.button`
 export const ButtonFav = styled.button`
   width: 15%;
   height: 10%;
-  border: 1.5px solid #d32f2f;
-  color: #d32f2f;
+  border: 1.5px solid #E0AA94;
+  color: #E0AA94;
   background-color: white;
   border-radius: 20px;
   font-family: Arimo, sans-serif;
@@ -100,12 +100,12 @@ export const ButtonFav = styled.button`
   margin-bottom: 2%;
 
   &:hover {
-    background-color: #d32f2f;
+    background-color: #E0AA94;
     color: white;
   }
 
   ${props => props.fav && css`
-  background-color: #d32f2f;
+  background-color: #E0AA94;
     color:white;
   `}
 

@@ -4,7 +4,9 @@ const GlobalStyles = createGlobalStyle`
 * {
     box-sizing: border-box;
 }
-body {
+html,body {
+   position:relative;
+    min-height: 100vh;
     background: ${({ theme }) => theme.colors.body};
     font-size: 1.15em;
     margin: 0;
