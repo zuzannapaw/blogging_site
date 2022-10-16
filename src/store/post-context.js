@@ -43,7 +43,7 @@ const DUMMY_POSTS = [
   {
     title: "That test is stressing me out...",
     description:
-      "Help me guys! Tomorrow I have important math test, and i can't concentrate at all! :(",
+      "Help me guys! Tomorrow I have important math test, and i can't concentrate at all! :( Tomorrow I have important math test, and i can't concentrate at all! :(Tomorrow I have important math test, and i can't concentrate at all! :(Tomorrow I have important math test, and i can't concentrate at all! :(Tomorrow I have important math test, and i can't concentrate at all! :(",
     author: "Matias190",
     isFav: false,
     id: "2",
@@ -67,6 +67,7 @@ const DUMMY_POSTS = [
 export const PostContextProvider = (props) => {
   const [posts, setPosts] = useState(DUMMY_POSTS);
   const [currAccount, setCurrAccount] = useState(null);
+  const [isLoggedOut,setIsLoggedOut] = useState(false);
 
   const onLogin = (loginData) => {
     const current = accounts.find(account => loginData.email === account.email && loginData.password === account.password);
@@ -97,7 +98,7 @@ export const PostContextProvider = (props) => {
         const indexToRemove = updatedCurrAccount.favorites.findIndex(favPost => favPost.id === postId);
         currAccount.favorites.splice(indexToRemove, 1);
 
-      };
+      }
       console.log(currAccount.favorites);
       setCurrAccount(updatedCurrAccount);
       setPosts(updatedPosts);
@@ -115,11 +116,20 @@ export const PostContextProvider = (props) => {
     updatedPosts.unshift(postData);
     setPosts(updatedPosts);
 
-  }
+  };
 
   const onLogout = ()=>{
     setCurrAccount(null);
-  }
+    setIsLoggedOut(true);
+  };
+
+  const loggedOutOkHandler = ()=>{
+    setIsLoggedOut(false);
+  };
+
+  const loggedOutCancelHandler= ()=>{
+    setIsLoggedOut(false);
+  };
 
   const contextValue = {
     posts: posts,
@@ -129,6 +139,9 @@ export const PostContextProvider = (props) => {
     currAccount,
     onAddPost,
     onLogout,
+    isLoggedOut: isLoggedOut,
+    loggedOutOkHandler,
+    loggedOutCancelHandler,
   };
 
 

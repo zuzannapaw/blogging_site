@@ -1,27 +1,32 @@
 import {
-    PostStyled,
-    UserIcon,
-    ButtonMore,
-    ButtonFav,
-  } from "../styles/posts/Post.styled";
-  import { FaUser } from "react-icons/fa";
-import { useContext } from "react";
+  PostStyled,
+  UserIcon,
+  ButtonMore,
+  ButtonFav,
+} from "../styles/posts/Post.styled";
+import { FaUser } from "react-icons/fa";
+import { useContext,useState } from "react";
 import PostContext from "../../store/post-context";
 
-
-const FavPost =(props)=>{
+const FavPost = (props) => {
+  const [clickedMore, setIsClickedMore] = useState(false)
 
   const postCtx = useContext(PostContext)
 
-const onRemoveFromFav=()=>{
+  const onClickMore = () => {
+    postCtx.onClickMore(props.id);
+    setIsClickedMore((prevState) => !prevState);
 
-  postCtx.onManagingFav(props.id)
+  }
 
+  const toggleMore = !clickedMore ? "More" : "Hide";
 
-}
+  const onRemoveFromFav = () => {
+    postCtx.onManagingFav(props.id)
+  }
 
-    return(
-    <PostStyled>
+  return (
+    <PostStyled >
       <ButtonFav onClick={onRemoveFromFav} fav={props.isFav}>Unfavorite</ButtonFav>
       <h2>{props.title}</h2>
       <h3>{props.description}</h3>
@@ -30,10 +35,10 @@ const onRemoveFromFav=()=>{
           <FaUser />
         </UserIcon>
         <p>{props.author}</p>
-        <ButtonMore>More</ButtonMore>
+        <ButtonMore onClick={onClickMore}>{toggleMore}</ButtonMore>
       </div>
     </PostStyled>
-    )
+  )
 
 }
 

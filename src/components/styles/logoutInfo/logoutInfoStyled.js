@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css}  from "styled-components";
 
 export const LogoutInfoDiv = styled.div`
 display: flex;
@@ -12,6 +12,12 @@ height:130px;
 width:300px;
 font-family: Arimo, sans-serif;
 border-radius: 10px;
+transition: 5s linear;
+
+${props => props.cancelClicked && css`
+top:1%`}
+
+//if btnCancel=> animation
 
 .container{
     margin-left:9px;
@@ -47,8 +53,39 @@ button{
         border-bottom: 1.5px solid white;
     }
 }
-
-
-
-
 `
+
+
+// animation: ${props => props.cancelClicked ? `cancel 3s linear` : `null`};
+
+// @keyframes cancel {
+//     from{
+//        opacity:1;
+   
+//     }
+//     to{
+//        opacity:0;
+   
+
+/* // const cancelClick = 
+// 0% {opacity:1}
+// 30% {opacity:0.6}
+// 70% {opacity:0.3}
+// 100%{opacity:0}
+// ` */
+
+/* .Cancel{
+    animation: ${cancelClick} .4s ease-out
+
+} */
+
+// .cancel-active {
+//     opacity: 1;
+//     transition: opacity 100ms;
+//   }
+//   .cancel-exit {
+//     opacity: 1;
+//   }
+//   .cancel-exit-active {
+//     opacity: 0;
+//     // transition: opacity 500ms
