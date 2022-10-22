@@ -1,35 +1,51 @@
 //absolute i positions
 
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import PostContext from "../../store/post-context"
 import { LogoutInfoDiv } from "../styles/logoutInfo/logoutInfoStyled"
 import { useNavigate } from "react-router"
-import CSSTransition from "react-transition-group/CSSTransition";
-
-
-const animationTiming = {
-    exit: 400,
-  };
 
 const LogoutInfo = () => {
-    const [cancelWasClicked, setCancelWasClicked] = useState(false);
+    const [logoutInfoMove,setLogoutInfoMove] = useState(false)
     const navigate = useNavigate();
 
-    const postCtx = useContext(PostContext);
+    const postCtx = useContext(PostContext)
+
+  let logoutMoveHandler;
+  
+  const logoutMove = ()=>{
+   setLogoutInfoMove(prevState=>!prevState);
+
+  }
+
+  useEffect(() => {
+        if(postCtx.isLoggedOut){
+        logoutMoveHandler = setInterval(logoutMove,1000);
+        return()=>{
+            clearInterval(logoutMoveHandler);
+        }
+    }
+
+  },[]);
+
+   
+
+    
 
     const loggedOutCancelHandler = () => {
-        // setCancelWasClicked(false);
         postCtx.loggedOutCancelHandler();
+        clearInterval(logoutMoveHandler);
 
     }
 
     const loggedOutOkHandler = () => {
         postCtx.loggedOutOkHandler();
-        navigate("/login")
+        navigate("/login");
+        clearInterval(logoutMoveHandler);
     }
     return (
         
-            <LogoutInfoDiv cancelClicked ={postCtx.sLoggedOut}>
+            <LogoutInfoDiv logoutInfoMove={logoutInfoMove} cancelClicked ={postCtx.sLoggedOut}>
                 <div className="container">
                     <h1>You have been logged out</h1>
                     <p>Click Cancel to stay on this page or Ok to log again.</p>

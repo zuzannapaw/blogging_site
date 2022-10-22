@@ -12,10 +12,13 @@ height:130px;
 width:300px;
 font-family: Arimo, sans-serif;
 border-radius: 10px;
-transition: 5s linear;
+transition: 1s ease-in;
 
-${props => props.cancelClicked && css`
-top:1%`}
+${props => props.logoutInfoMove&& css`
+    right:8%;
+    top:5%;
+
+`}
 
 //if btnCancel=> animation
 
