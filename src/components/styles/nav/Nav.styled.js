@@ -28,9 +28,9 @@ export const NavStyled = styled.nav`
     letter-spacing: 1px;
   }
 
-  li:hover {
+  /* li:hover {
     background-color: #3a3a3a;
-  }
+  } */
 
   .welcome-name{
     margin-left: 5%;
@@ -46,6 +46,7 @@ export const NavbarLink = styled(NavLink)`
   text-decoration: none;
   font-family: Arimo, sans-serif;
   font-weight: 500;
+  transition:0.2s;
 `;
 
 export const Logo = styled.img`

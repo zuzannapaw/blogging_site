@@ -10,7 +10,7 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 height: 37rem;
-border-radius:40px;
+border-radius:10px;
 background-color:white;
 width:60%;
 margin: 65px auto 10px auto;

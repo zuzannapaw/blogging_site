@@ -1,5 +1,6 @@
 import {
   PostStyled,
+  PostContent,
   UserIcon,
   ButtonMore,
   ButtonFav,
@@ -29,7 +30,9 @@ const FavPost = (props) => {
     <PostStyled >
       <ButtonFav onClick={onRemoveFromFav} fav={props.isFav}>Unfavorite</ButtonFav>
       <h2>{props.title}</h2>
-      <h3>{props.description}</h3>
+      <PostContent clickedMore={clickedMore}>
+        <h3>{props.description}</h3>
+      </PostContent>
       <div>
         <UserIcon>
           <FaUser />
