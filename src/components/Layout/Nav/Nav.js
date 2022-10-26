@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import PostContext from "../../../store/post-context";
 import { NavStyled, Logo, NavbarLink } from "../../styles/nav/Nav.styled";
+import { FaUser } from "react-icons/fa";
 
 
 const Nav = (props) => {
@@ -28,7 +29,7 @@ const Nav = (props) => {
   return (
     <NavStyled onMouseOver={handleHover.bind(0.4)} onMouseOut={handleHover.bind(1)}>
       <Logo src="../../../images/logo1.png" alt="" />
-      {postCtx.currAccount && <p className="welcome-name">{welcomeName}</p>}
+      {postCtx.currAccount && <p className="welcome-name"> <FaUser className="icon-user"/> {welcomeName}</p>}
       <ul className="nav-list">
         <li><NavbarLink className="nav-link" to="/">Posts</NavbarLink></li>
         {postCtx.currAccount && <li><NavbarLink className="nav-link" to="/favorites">Favorite Posts</NavbarLink></li>}

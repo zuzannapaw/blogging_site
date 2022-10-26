@@ -10,6 +10,7 @@ const AddPostForm = () => {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [formValidInfo, setFormValidInfo] = useState("");
 
     const addTitleHandler = (e) => {
         setTitle(e.target.value);
@@ -23,6 +24,8 @@ const AddPostForm = () => {
 
     const submitFormHandler = (e) => {
         e.preventDefault();
+
+        if(title.length > 0 && content.length > 0){
         const newPostData = {
             title: title,
             description: content,
@@ -36,12 +39,17 @@ const AddPostForm = () => {
         setContent("");
         navigate("/");
 
-    };
+    } else {
+        setFormValidInfo("Do not send empty post. Add title and content.")
 
+    }
+
+    };
     return (
         <AddPostFormStyled onSubmit={submitFormHandler}>
+            <p className="form-valid-info">{formValidInfo}</p>
             <label>post title</label>
-            <input onChange={addTitleHandler} value={title} className={"post-title"} placeholder="Title"></input>
+            <input onChange={addTitleHandler} value={title} className={"post-title"} placeholder="Title" maxlength="125"></input>
             <label>what's on your mind?</label>
             <textarea onChange={addContentHandler} value={content} className={"post-content"}></textarea>
             <button type="submit">Add Post</button>

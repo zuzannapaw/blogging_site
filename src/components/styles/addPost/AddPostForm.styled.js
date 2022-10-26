@@ -20,6 +20,7 @@ font-family:Arimo,sans-serif;
 input.post-title{
 width:60%;
 height:7%;
+font-size:0.8em; 
 margin: 0 3% 1% 3%;
 padding:3px; 
 }
@@ -29,7 +30,7 @@ box-sizing: content-box;
 width:70%;
 height:40%; 
 margin: 0 3%;
-font-size:1em; 
+font-size:0.9em; 
 padding:3px; 
 
 }
@@ -56,5 +57,13 @@ transition:0.3s;
     background-color: #3a3a3a;
     color: white;    
     }
+}
+
+.form-valid-info{
+    font-size:15px;
+    font-weight: normal;
+    font-family: Arimo, sans-serif;
+    color:#DC143C;
+    margin-left:3%;
 }
 `

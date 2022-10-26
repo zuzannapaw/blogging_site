@@ -14,6 +14,7 @@ const FavList = () => {
   const favoritePosts = postCtx.currAccount? postCtx.currAccount.favorites : [];
 
   console.log(`FAV ${favoritePosts}`)
+  console.log(postCtx.currAccount)
 
   const postsList = favoritePosts.map((post) => {
     return (

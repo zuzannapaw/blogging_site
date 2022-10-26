@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 
+
 const PostContext = React.createContext({
   posts: [],
   onManagingFav: () => { },
@@ -69,13 +70,16 @@ export const PostContextProvider = (props) => {
   const [currAccount, setCurrAccount] = useState(null);
   const [isLoggedOut,setIsLoggedOut] = useState(false);
 
-  const onLogin = (loginData) => {
+
+  const onLogin =(loginData) => {
+
     const current = accounts.find(account => loginData.email === account.email && loginData.password === account.password);
     setCurrAccount(current);
     console.log(`Welcome ${current.owner}`);
 
-  };
-
+    setIsLoggedOut(false);
+    
+  }
 
 
   const onManagingFav = (postId) => {

@@ -1,4 +1,10 @@
-import styled, {css}  from "styled-components";
+import styled, {css,keyframes}  from "styled-components";
+
+const logoutMove = keyframes`
+    0%  {position:absolute; top:7%; }
+    50% {position:absolute; top:6%; }
+    100% {position:absolute; top:7%;}
+`
 
 export const LogoutInfoDiv = styled.div`
 display: flex;
@@ -12,15 +18,12 @@ height:130px;
 width:300px;
 font-family: Arimo, sans-serif;
 border-radius: 10px;
-transition: 1s ease-in;
 
 ${props => props.logoutInfoMove&& css`
-    right:8%;
-    top:5%;
+   animation: ${logoutMove} 1s linear;
 
 `}
 
-//if btnCancel=> animation
 
 .container{
     margin-left:9px;
@@ -53,42 +56,8 @@ button{
     transition: ease 0.2s;
 
     &:hover{
-        border-bottom: 1.5px solid white;
+        border-bottom: 1px solid white;
     }
 }
+
 `
-
-
-// animation: ${props => props.cancelClicked ? `cancel 3s linear` : `null`};
-
-// @keyframes cancel {
-//     from{
-//        opacity:1;
-   
-//     }
-//     to{
-//        opacity:0;
-   
-
-/* // const cancelClick = 
-// 0% {opacity:1}
-// 30% {opacity:0.6}
-// 70% {opacity:0.3}
-// 100%{opacity:0}
-// ` */
-
-/* .Cancel{
-    animation: ${cancelClick} .4s ease-out
-
-} */
-
-// .cancel-active {
-//     opacity: 1;
-//     transition: opacity 100ms;
-//   }
-//   .cancel-exit {
-//     opacity: 1;
-//   }
-//   .cancel-exit-active {
-//     opacity: 0;
-//     // transition: opacity 500ms

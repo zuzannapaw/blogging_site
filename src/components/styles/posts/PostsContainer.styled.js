@@ -14,6 +14,7 @@ align-items:center;
 export const PostsCard = styled.div`
 width:70%;
 height: auto;
+margin-top: -35px;
 background-color:white;
 border-radius:10px;
 padding: 4%;

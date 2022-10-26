@@ -34,12 +34,12 @@ export const PostSummaryStyled = styled.section`
 
   button{
     width:15%;
-    height:13%;
+    height:12%;
     letter-spacing:1.5px;
     background-color:#3a3a3a;
     color:white;
     margin-left: 10%;
-    border-radius:20px;
+    border-radius:25px;
     font-family: Arimo, sans-serif;
     font-size: 90%;
     cursor:pointer;
@@ -51,14 +51,3 @@ export const PostSummaryStyled = styled.section`
     border: 0px;
   }
 `;
-
-// export const PostSummaryCard = styled.div`
-// display:flex;
-// flex-direction: column;
-// justify-content:center;
-//   background-color: white;
-//   width:60%;
-//   height:15rem;
-//   border-radius: 20px;
-//   box-shadow: 5px 5px #bebebe;
-// `;

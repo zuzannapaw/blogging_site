@@ -34,10 +34,15 @@ export const NavStyled = styled.nav`
 
   .welcome-name{
     margin-left: 5%;
+    margin-top: 1%;
     color:white;
     font-family:Arimo,sans-serif;
     font-weight: 500;
-    font-size:0.9em;
+    font-size:0.8em;
+  }
+
+  .icon-user{
+    font-size: 0.7em;
   }
 `;
 

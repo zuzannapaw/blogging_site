@@ -12,13 +12,13 @@ export const PostStyled = styled.div`
   margin-bottom: 5%;
 
   h2 {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-bottom: 0;
   }
 
   h3 {
-    font-size: 0.9rem;
+    font-size: 70%;
     line-height: 170%;
     font-weight: 500;
   }
@@ -60,8 +60,6 @@ p{
 }
 
 `
-
-
 export const UserIcon = styled.div`
   width: 1.5%;
 

@@ -5,32 +5,29 @@ import PostContext from "../../store/post-context"
 import { LogoutInfoDiv } from "../styles/logoutInfo/logoutInfoStyled"
 import { useNavigate } from "react-router"
 
+let logoutMoveHandler;
+
 const LogoutInfo = () => {
-    const [logoutInfoMove,setLogoutInfoMove] = useState(false)
+    const [logoutInfoMove, setLogoutInfoMove] = useState(false)
     const navigate = useNavigate();
 
     const postCtx = useContext(PostContext)
 
-  let logoutMoveHandler;
-  
-  const logoutMove = ()=>{
-   setLogoutInfoMove(prevState=>!prevState);
+    const logoutMove = () => {
+        setLogoutInfoMove(prevState => !prevState);
 
-  }
-
-  useEffect(() => {
-        if(postCtx.isLoggedOut){
-        logoutMoveHandler = setInterval(logoutMove,1000);
-        return()=>{
-            clearInterval(logoutMoveHandler);
-        }
     }
 
-  },[]);
+    useEffect(() => {
+        if (postCtx.isLoggedOut) {
+            logoutMoveHandler = setInterval(logoutMove, 3000);
+            return () => {
+                clearInterval(logoutMoveHandler);
+            }
+        }
 
-   
+    }, []);
 
-    
 
     const loggedOutCancelHandler = () => {
         postCtx.loggedOutCancelHandler();
@@ -44,18 +41,18 @@ const LogoutInfo = () => {
         clearInterval(logoutMoveHandler);
     }
     return (
-        
-            <LogoutInfoDiv logoutInfoMove={logoutInfoMove} cancelClicked ={postCtx.sLoggedOut}>
-                <div className="container">
-                    <h1>You have been logged out</h1>
-                    <p>Click Cancel to stay on this page or Ok to log again.</p>
-                    <div className="button-container">
-                        <button onClick={loggedOutCancelHandler}>Cancel</button>
-                        <button onClick={loggedOutOkHandler}>Ok</button>
-                    </div>
+
+        <LogoutInfoDiv logoutInfoMove={logoutInfoMove} cancelClicked={postCtx.sLoggedOut}>
+            <div className="container">
+                <h1>You have been logged out</h1>
+                <p>Click Cancel to stay on this page or Ok to log again.</p>
+                <div className="button-container">
+                    <button onClick={loggedOutCancelHandler}>Cancel</button>
+                    <button onClick={loggedOutOkHandler}>Ok</button>
                 </div>
-            </LogoutInfoDiv>
-      
+            </div>
+        </LogoutInfoDiv>
+
     )
 }
 
