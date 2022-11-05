@@ -35,13 +35,18 @@ const Post = (props) => {
     }
   }
 
+  let currPost;
+  if(postCtx.currAccount){
+  currPost = postCtx.currAccount.favorites.find(post=> post.id === props.id);
+}
+ 
   return (
     <PostStyled>
       {postCtx.currAccount && <ButtonFav
         onClick={onAddToFav}
-        fav={props.isFav}
+        fav={currPost}
       >
-        {props.isFav ? "Unfavorite" : "Favorite"}
+        {currPost? "Unfavorite" : "Favorite"}
       </ButtonFav>}
       <h2>{props.title}</h2>
       <PostContent clickedMore={clickedMore}>
